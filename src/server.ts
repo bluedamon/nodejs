@@ -1,8 +1,8 @@
-import http from 'node:http';
+import fastify from 'fastify';
 
-const server = http.createServer((req, res) => {
-    console.log('Server Running 💻');
-    return res.end('Server ON');
+const app = fastify();
+app.get('/test', () => {
+    return 'Server ON 💻';
 });
 
-server.listen(3333);
+app.listen({port: 3333}).then(() => {console.log('Serves ON 💻')})
